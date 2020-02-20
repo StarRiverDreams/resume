@@ -1,6 +1,6 @@
 @import 'config';
 @import 'menu';
-
+@import 'mobile';
 *{
   box-sizing: border-box;
 }
@@ -11,7 +11,7 @@ body{
   color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat',Arial, Helvetica, sans-serif;
   line-height: 1.5;
 }
 
@@ -77,6 +77,9 @@ main{
   'jobtitle jobtitle jobtitle'
   'job1 job2 job3'
   'othertitle othertitle othertitle'
+  'other1 other2 other3'
+  'projecttitle projecttitle projecttitle'
+  'project1 project2 project3'
   ;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
@@ -101,6 +104,24 @@ main{
   .job3{
     grid-area:job3;
   }
+  .project1{
+    grid-area:project1;
+  }
+  .project2{
+    grid-area:project2;
+  }
+  .project3{
+    grid-area:project3;
+  }
+  .other1{
+    grid-area:other1;
+  }
+  .other2{
+    grid-area:other2;
+  }
+  .other3{
+    grid-area:other3;
+  }
   .job{
     background: lighten($primary-color, 5);
     padding: 0.5rem;
@@ -115,6 +136,9 @@ main{
   }
   .other-title{
     grid-area:othertitle;
+  }
+  .project-title{
+    grid-area:projecttitle;
   }
   .type-title{
     font-size: 24px;
@@ -186,5 +210,94 @@ main{
   color: set-text-color($primary-color);
   height: 60px;
 }
+.settings{
+  display: none;
+  position: absolute;
+  top: 1.6rem;
+  left: 1rem;
+  cursor: pointer;
+}
+.settings-modal{
+  width: 100%;
+  height: 100%;
+  background: rgba($primary-color,0.5);
+  position: absolute;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  &.show-modal{
+    display: flex;
+    z-index: 5;
+  }
+  .modal-container {
+    width: 300px;
+    min-height: 28vh;
+    background-color: #f1f2f6;
+    border-radius: 8px;
+    margin-top: -40px;
+    position: relative;
+    overflow: hidden;
+    .modal-header{
+      background:$primary-color;
+      color: set-text-color($primary-color);
+      position: relative;
+      height: 7vh;
+      width: 100%;
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+      padding: 0.8rem 1rem;
+      .title{
+       font-size: 1.2rem;
+       letter-spacing: 0.1rem;
+      }
+      .modal-close{
+        position: absolute;
+        right: 0.6rem;
+        top: 0.1rem;
+        transform: rotate(45deg);
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    }
+    .modal-content{
+      padding: 2rem 3rem;
+      color: $primary-color;
+      font-size: 1rem;
+    }
+  }
+  input[type=checkbox]{
+    position: relative;
+    width: 40px;
+    height: 20px;
+    top: 8px;
+    left: 10px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+    transition: .5s;
+  }
+  input:checked[type=checkbox]{
+    background: $primary-color;
+  }
+  input[type=checkbox]:before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    transition: .5s;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  }
+  input:checked[type=checkbox]:before{
+    left: 20px;
+  }
+}
 
-@import 'mobile';
+

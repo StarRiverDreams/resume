@@ -56,9 +56,11 @@
     grid-template-areas: 
     'bioimage'
     'bio'
+    'jobtitle'
     'job1'
     'job2'
-    'job3';
+    'job3'
+    'othertitle';
     grid-template-columns: 1fr;
   }
   .projects {
@@ -68,15 +70,17 @@
 
 // phone
 @include mediaSm{
+  .lg-heading {
+    font-size: 1.5rem;
+    margin-top:1rem;
+    font-size: 5rem;
+  }
   main{
     padding: 2rem;
     #home h1 {
       margin-top: 10vh;
     }
-    .lg-heading {
-      margin-top:1rem;
-      font-size: 5rem;
-    }
+    
   }
   .projects{
     grid-template-columns: 1fr;
